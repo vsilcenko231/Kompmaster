@@ -50,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
         }
         
         .logo {
@@ -59,13 +59,13 @@
         }
         
         .logo-icon {
-            font-size: 32px;
+            font-size: 30px;
             color: var(--secondary);
             margin-right: 10px;
         }
         
         .logo-text {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--primary);
         }
@@ -101,10 +101,10 @@
         }
         
         .phone {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             color: var(--primary);
-            margin-right: 20px;
+            margin-right: 15px;
             text-decoration: none;
         }
         
@@ -112,17 +112,78 @@
             background-color: var(--secondary);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 5px;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
             display: inline-block;
+            font-size: 15px;
         }
         
         .btn:hover {
             background-color: #2980b9;
+        }
+        
+        /* Бургер-иконка */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            justify-content: space-between;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { max-height: 0; opacity: 0; }
+            to { max-height: 400px; opacity: 1; }
+        }
+        
+        .mobile-menu nav ul {
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px 0;
+        }
+        
+        .mobile-menu nav ul li {
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-menu nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .mobile-menu nav ul li a:hover {
+            background-color: #f0f5ff;
         }
         
         /* Hero Section */
@@ -131,26 +192,26 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 0;
+            padding: 80px 0;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
         }
         
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
         
         .btn-secondary {
@@ -161,6 +222,81 @@
         .btn-secondary:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px 0;
+            }
+            
+            .contact-header {
+                width: 100%;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .phone {
+                font-size: 15px;
+                margin: 0 10px;
+            }
+            
+            .btn {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-item h4, .contact-item p {
+                font-size: 14px;
+            }
+        }
+        
+        /* Об остальных стилях (услуги, отзывы и т.д.) можно оставить как есть — они и так адаптивные */
+        /* ... (все остальные стили без изменений) ... */
         
         /* Services Section */
         .section {
@@ -499,61 +635,6 @@
             color: var(--gray);
             font-size: 0.9rem;
         }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                max-width: 500px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin: 20px 0;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 10px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .advantages {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -566,6 +647,31 @@
                 </div>
                 <div class="logo-text">КомпМастер<span>Виталий</span></div>
             </div>
+
+            <!-- Бургер-иконка -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="contact-header">
+                <a href="tel:+79313899399" class="phone">+7 (931) 389-93-99</a>
+                <a href="#contact" class="btn">Заказать звонок</a>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div class="container mobile-menu" id="mobileMenu">
             <nav>
                 <ul>
                     <li><a href="#services">Услуги</a></li>
@@ -574,10 +680,6 @@
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="contact-header">
-                <a href="tel:+79313899399" class="phone">+7 (931) 389-93-99</a>
-                <a href="#contact" class="btn">Заказать звонок</a>
-            </div>
         </div>
     </header>
 
@@ -875,31 +977,26 @@
             const form = this;
             const formMessage = document.getElementById('form-message');
             
-            // Показываем сообщение о загрузке
             formMessage.textContent = "Отправка заявки...";
             formMessage.className = "form-message";
             formMessage.style.display = "block";
             
-            // Отправка формы через EmailJS
-            emailjs.sendForm('service_pfp0869', 'template_umhqj0f', form) // Ваши Service ID и Template ID
+            emailjs.sendForm('service_pfp0869', 'template_umhqj0f', form)
                 .then(function() {
-                    // Успешная отправка
                     formMessage.textContent = "Заявка успешно отправлена! Я свяжусь с вами в ближайшее время.";
                     formMessage.className = "form-message success";
                     form.reset();
                 }, function(error) {
-                    // Ошибка отправки
                     formMessage.textContent = "Ошибка при отправке заявки. Пожалуйста, позвоните мне по телефону.";
                     formMessage.className = "form-message error";
                     console.error('Ошибка отправки:', error);
                 });
         });
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
@@ -907,6 +1004,21 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Бургер-меню
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', function () {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
             });
         });
     </script>
