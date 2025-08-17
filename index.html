@@ -287,12 +287,17 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .about-image img {
+        .master-photo {
             width: 100%;
             height: auto;
+            max-width: 100%;
             display: block;
+            object-fit: cover;
         }
         
         .about-text {
@@ -718,7 +723,6 @@
         </div>
     </header>
 
-    <!-- Остальной код остается без изменений -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -799,10 +803,10 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <!-- Заглушка вместо photo/master.jpg -->
-                    <div style="background: #3498db; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                        Фото мастера
-                    </div>
+                    <!-- Фото мастера Виталия -->
+                    <img src="photo/master.jpg" 
+                        alt="Виталий Сильченко - компьютерный мастер" 
+                        class="master-photo">
                 </div>
                 <div class="about-text">
                     <h2>Виталий Сильченко</h2>
